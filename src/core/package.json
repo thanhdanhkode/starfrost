@@ -1,0 +1,31 @@
+{
+	"name": "@starfrost/core",
+	"version": "1.0.0",
+	"description": "Core for Starfrost",
+	"main": "dist/index.js",
+	"type": "module",
+	"scripts": {
+		"start": "node dist/index.js",
+		"build": "rimraf ./dist && tsc",
+		"dev": "tsx watch src/index.ts"
+	},
+	"keywords": [],
+	"author": "thanhdanhkode",
+	"license": "AGPL-3.0-only",
+	"packageManager": "pnpm@10.14.0",
+	"dependencies": {
+		"@fastify/autoload": "^6.3.1",
+		"@fastify/env": "^5.0.2",
+		"@fastify/websocket": "^11.2.0",
+		"dotenv": "^17.2.1",
+		"fastify": "^5.5.0",
+		"fastify-cli": "^7.4.0",
+		"fastify-tsconfig": "^3.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^24.3.0",
+		"pino-pretty": "^13.1.1",
+		"rimraf": "^6.0.1",
+		"tsx": "^4.20.4"
+	}
+}

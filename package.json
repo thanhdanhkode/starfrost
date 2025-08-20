@@ -1,0 +1,28 @@
+{
+  "name": "starfrost",
+  "version": "0.0.1",
+  "description": "Starfrost Panel for Minecraft server management",
+  "keywords": [
+    "Minecraft",
+    "Fastify"
+  ],
+  "author": "thanhdanhkode",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "preinstall": "typesync || :",
+    "prepare": "husky"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "@eslint/css": "^0.10.0",
+    "@eslint/js": "^9.33.0",
+    "@eslint/json": "^0.13.1",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.5.1",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.40.0",
+    "typesync": "^0.14.3"
+  }
+}
