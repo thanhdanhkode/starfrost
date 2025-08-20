@@ -4,7 +4,7 @@
 
 Starfrost, is a free and open-source Minecraft hosting management, built with Fastify and SolidJS
 
-[x] Project will be update soon
+- [x] Project will be update soon
 
 ## License
 
