@@ -3,10 +3,15 @@ import { randomUUID } from 'node:crypto';
 
 const APIRoute = (fastify: FastifyInstance, option: any) => {
 	fastify.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
-		return reply.status(200).send({ tokenId: randomUUID(), permissions: {} });
+		return reply.status(200).send({ message: 'Starfrost Token API is opened' });
 	});
+
 	fastify.post('/', async (request: FastifyRequest, reply: FastifyReply) => {
 		return reply.status(201).send({ tokenId: randomUUID(), permissions: {} });
+	});
+
+	fastify.delete('/', async (request: FastifyRequest, reply: FastifyReply) => {
+		return reply.status(204).send();
 	});
 };
 
