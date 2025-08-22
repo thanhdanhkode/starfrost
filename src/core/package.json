@@ -15,6 +15,7 @@
 	"packageManager": "pnpm@10.14.0",
 	"dependencies": {
 		"@fastify/autoload": "^6.3.1",
+		"@fastify/bearer-auth": "^10.1.1",
 		"@fastify/env": "^5.0.2",
 		"@fastify/websocket": "^11.2.0",
 		"dotenv": "^17.2.1",
