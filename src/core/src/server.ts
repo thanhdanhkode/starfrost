@@ -12,11 +12,13 @@ const server = Fastify({
 			options: {
 				colorize: true,
 				translateTime: 'SYS:HH:mm:ss',
-				ignore: 'pid,hostname',
+				ignore: 'pid,hostname,req,reqId,res,responseTime,',
 			},
 		},
 	},
 });
+
+server.register(import('@fastify/websocket'));
 
 server.register(import('@fastify/autoload'), {
 	dir: join(__dirname, 'routes'),
