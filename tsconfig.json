@@ -1,0 +1,9 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist"
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "./**/*.spec.ts"]
+}
