@@ -1,7 +1,5 @@
-import Fastify from 'fastify';
-
 (async () => {
-	const fastify = Fastify({
+	const fastify = require('fastify')({
 		logger: {
 			transport: {
 				target: 'pino-pretty',
@@ -15,7 +13,7 @@ import Fastify from 'fastify';
 	});
 
 	try {
-		await fastify.register(import('./server.js'));
+		await fastify.register(require('./server.js'));
 		await fastify.listen({ port: 3000 });
 	} catch (error) {
 		fastify.log.error(error);

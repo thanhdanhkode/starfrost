@@ -4,4 +4,4 @@ const APIRoute = (fastify, option) => {
   });
 };
 
-export default APIRoute;
+module.exports = APIRoute;

@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+const { randomUUID } = require('node:crypto');
 
 const options = {
   schema: {
@@ -41,4 +41,4 @@ const APIRoute = (fastify, option) => {
   });
 };
 
-export default APIRoute;
+module.exports = APIRoute;

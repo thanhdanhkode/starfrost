@@ -1,4 +1,4 @@
-import { randomBytes, randomUUID } from 'node:crypto';
+const { randomBytes, randomUUID } = require('node:crypto');
 
 const APIRoute = (fastify, option) => {
   fastify.get('/', async (request, reply) => {
@@ -23,4 +23,4 @@ const APIRoute = (fastify, option) => {
   });
 };
 
-export default APIRoute;
+module.exports = APIRoute;

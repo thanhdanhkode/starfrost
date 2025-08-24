@@ -4,4 +4,4 @@ const DefaultRoute = (fastify, option) => {
   });
 };
 
-export default DefaultRoute;
+module.exports = DefaultRoute;
