@@ -1,4 +1,3 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { randomBytes, randomUUID } from 'node:crypto';
 
 const userOptions = {
@@ -14,8 +13,8 @@ const userOptions = {
 	},
 };
 
-const APIRoute = (fastify: FastifyInstance, option: any) => {
-	fastify.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
+const APIRoute = (fastify, option) => {
+	fastify.get('/', async (request, reply) => {
 		return reply.status(200).send([
 			{
 				userId: 1,
@@ -34,8 +33,8 @@ const APIRoute = (fastify: FastifyInstance, option: any) => {
 		]);
 	});
 
-	fastify.post('/', userOptions, async (request: FastifyRequest, reply: FastifyReply) => {
-		const { username, email } = request.body as { username: string; email: string };
+	fastify.post('/', userOptions, async (request, reply) => {
+		const { username, email } = request.body;
 		return reply
 			.status(201)
 			.send({ userId: 3, username, email, uuid: randomUUID(), password: randomBytes(16).toString('hex') });

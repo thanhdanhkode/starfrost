@@ -1,19 +1,10 @@
-import { FastifyPluginAsync } from 'fastify';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-declare module 'fastify' {
-	interface FastifyInstance {
-		config: {
-			BEARER_TOKEN_SECRET: string;
-		};
-	}
-}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const server: FastifyPluginAsync = async (fastify, options): Promise<void> => {
+const server = async (fastify, options) => {
 	await fastify.register(import('@fastify/websocket'));
 
 	await fastify.register(import('@fastify/autoload'), {
@@ -36,7 +27,7 @@ const server: FastifyPluginAsync = async (fastify, options): Promise<void> => {
 		keys: new Set([fastify.config.BEARER_TOKEN_SECRET]),
 		contentType: undefined,
 		bearerType: 'Bearer',
-		errorResponse: (err: any) => {
+		errorResponse: (err) => {
 			console.error(err);
 			return { error: err.message };
 		},
