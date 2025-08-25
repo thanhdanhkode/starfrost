@@ -29,6 +29,12 @@ const server = async (fastify, options) => {
     },
   });
 
+  await fastify.register(require('@fastify/cookie'), {
+    secret: 'your-secret-key',
+    hook: 'onRequest',
+    parseOptions: {},
+  });
+
   fastify.ready(() => {
     console.log('[Starfrost] Routes\n', fastify.printRoutes());
     // console.log('[Starfrost] Plugins \n', fastify.printPlugins());
