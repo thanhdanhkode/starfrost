@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/nodemon.json",
+  "watch": ["*.js"],
+  "ext": ".js",
+  "exec": "node index.js"
+}
