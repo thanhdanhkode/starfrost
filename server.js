@@ -3,6 +3,8 @@ const { join } = require('node:path');
 const server = async (fastify, options) => {
   await fastify.register(require('@fastify/websocket'));
 
+	await fastify.register(require('@fastify/auth'), {});
+
   await fastify.register(require('@fastify/autoload'), {
     dir: join(__dirname, 'routes'),
     forceESM: true,
