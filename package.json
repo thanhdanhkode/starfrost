@@ -51,5 +51,6 @@
     "fastify-cli": "^7.4.0",
     "fastify-plugin": "^5.0.1",
     "html-minifier-terser": "^7.2.0",
+    "terser": "^5.43.1"
   }
 }
