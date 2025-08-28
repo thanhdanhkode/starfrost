@@ -1,0 +1,105 @@
+.starfrost-sidebar {
+  width: 256px;
+  min-width: 256px;
+  max-width: 256px;
+  height: calc(100vh - 48px);
+  border-right: 1px solid #e5e5e5;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+.spacer {
+  flex: 1;
+}
+
+.active {
+  background: blueviolet;
+  color: white;
+}
+
+.starfrost-sidebar > .navlink {
+  width: 100%;
+  min-height: 48px;
+  height: 48px;
+  max-height: 48px;
+  padding: 8px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  cursor: pointer;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.starfrost-sidebar > .navlink:hover {
+  background: blueviolet;
+  color: white;
+}
+
+.starfrost-sidebar > .navlink > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.starfrost-sidebar > .navlink > span {
+  text-align: left;
+  font-size: 1rem;
+  margin: 0 8px;
+}
+
+.starfrost-sidebar > .account {
+  width: 100%;
+  min-height: 48px;
+  height: 48px;
+  max-height: 48px;
+  padding: 8px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.1s;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background: transparent;
+  border-top: 1px solid #e5e5e5;
+}
+
+.starfrost-sidebar > .account > svg {
+  width: 32px;
+  height: 32px;
+}
+
+.starfrost-sidebar > .account > img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 999px;
+}
+
+.starfrost-sidebar > .account > span {
+  text-align: left;
+  font-size: 1rem;
+  margin: 0 8px;
+  font-weight: 500;
+}
+
+.starfrost-sidebar > .account > .btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.starfrost-sidebar > .account > .btn:hover {
+  background: blueviolet;
+  color: white;
+}
+
+.starfrost-sidebar > .account > .btn > svg {
+  width: 16px;
+  height: 16px;
+}

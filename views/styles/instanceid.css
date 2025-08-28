@@ -1,0 +1,171 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.instance {
+  width: calc((3 / 4) * 100%);
+  margin: auto;
+  margin-top: 32px;
+}
+
+.instance > .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instance > .header > .info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.instance > .header > .info > span:nth-child(1) {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.instance > .header > .info > span:nth-child(2) {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #737373;
+}
+
+.instance > .panel {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.instance > .panel > .menubar {
+  width: 100%;
+  height: 32px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.instance > .panel > .menubar > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #d4d4d4;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.instance > .panel > .menubar > div:last-child {
+  cursor: default;
+  flex: 1;
+}
+
+.instance > .panel > .menubar > div.active-tab {
+  border-bottom: 2px solid blueviolet;
+}
+
+.instance > .panel > .menubar > div:hover {
+  border-bottom: 2px solid blueviolet;
+}
+.instance > .panel > .menubar > div:last-child:hover {
+  border-bottom: 2px solid #d4d4d4;
+}
+
+.instance > .panel > .menubar > div > svg {
+  width: 16px;
+  height: 16px;
+}
+.instance > .panel > .menubar > div > span {
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.instance > .panel > .view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instance > .panel > .view > .terminal {
+  width: 100%;
+  height: calc(100vh - 240px);
+  background: #f3f3f3;
+  border-radius: 6px;
+  padding: 12px 12px 6px 12px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.instance > .panel > .view > .terminal > #console-output {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.instance > .panel > .view > .terminal > .console {
+  display: flex;
+  align-items: center;
+  max-height: 32px;
+  border-top: 1px solid blueviolet;
+  padding: 4px 0;
+}
+
+.instance > .panel > .view > .terminal > .console > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.instance > .panel > .view > .terminal > .console > input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 4px;
+  margin-left: 4px;
+  max-height: 24px;
+}
+
+.instance > .panel > .view > .files {
+  width: 100%;
+  height: calc(100vh - 240px);
+  display: flex;
+}
+
+.instance > .panel > .view > .files > .list {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid blueviolet;
+  overflow-y: scroll;
+}
+
+.instance > .panel > .view > .files > .list > li {
+  width: 100%;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 8px 0;
+}
+
+.instance > .panel > .view > .files > .list > li > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.instance > .panel > .view > .files > .list > li > div > svg {
+  width: 16px;
+  height: 16px;
+}
+.instance > .panel > .view > .files > .list > li > div > span {
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.instance > .panel > .view > .files > .editor {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}

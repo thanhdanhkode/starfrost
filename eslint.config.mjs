@@ -22,5 +22,6 @@ export default defineConfig([
       'no-explicit-any': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
     },
+    extends: 'jquery',
   },
 ]);

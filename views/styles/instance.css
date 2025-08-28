@@ -1,0 +1,117 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+.instance {
+  width: calc((3 / 4) * 100%);
+  margin: auto;
+  margin-top: 32px;
+}
+.instance > .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.instance > .header > span {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+}
+.instance > .header > .func > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  background: #f5f5f5;
+}
+.instance > .header > .func > button:hover {
+  background: blueviolet;
+  color: white;
+}
+.instance > .header > .func > button > svg {
+  width: 16px;
+  height: 16px;
+}
+.instance > .header > .func > button > span {
+  margin: 0 4px;
+  text-wrap: nowrap;
+}
+.instance > .list {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: auto;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: calc(3 / 4 * 100%);
+}
+.instance > .list > li {
+  display: contents;
+}
+.instance > .list > li > a {
+  width: 100%;
+  height: 72px;
+  padding: 12px;
+  background: #f5f5f5;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.instance > .list > li > a:hover {
+  background: blueviolet;
+  color: white;
+}
+.instance > .list > li > a > .instance-info {
+  display: flex;
+  flex-direction: column;
+}
+.instance > .list > li > a > .instance-info > span:nth-child(1) {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.instance > .list > li > a > .instance-info > span:nth-child(2) {
+  color: #737373;
+  font-size: 0.75rem;
+}
+.instance > .list > li > a:hover > .instance-info > span:nth-child(2) {
+  color: #f3f3f3;
+}
+.instance > .list > li > a > .instance-stats {
+  display: flex;
+  align-items: center;
+}
+.instance > .list > li > a > .instance-stats > .stat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background: #d4d4d4;
+  border-radius: 6px;
+  margin: 0 4px;
+}
+
+.instance > .list > li > a:hover > .instance-stats > .stat {
+  background: #fff;
+  color: #000;
+}
+
+.instance > .list > li > a > .instance-stats > .stat > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.instance > .list > li > a > .instance-stats > .stat > span {
+  font-size: 0.875rem;
+  margin: 0 8px;
+}
