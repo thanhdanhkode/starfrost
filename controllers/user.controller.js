@@ -1,10 +1,9 @@
 const { randomBytes, randomUUID } = require('node:crypto');
 
 const createUser = async (request, reply) => {
-  const { username, email } = request.body;
-  return reply
-    .status(201)
-    .send({ userId: 3, username, email, uuid: randomUUID(), password: randomBytes(16).toString('hex') });
+  const { username, password, role, email } = request.body;
+  const data = await reply.server.user.create({ username, password, userEmail: email, userRole: role });
+  return reply.status(201).send(data);
 };
 
 const getAllUsers = async (request, reply) => {
