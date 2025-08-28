@@ -112,6 +112,7 @@
 }
 
 .instance > .list > li > a > .instance-stats > .stat > span {
+  text-transform: capitalize;
   font-size: 0.875rem;
   margin: 0 8px;
 }

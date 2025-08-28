@@ -169,7 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       try {
         let newPath = currentPath;
-        const instanceMatch = currentPath.match(/^(\/app\/instances\/\d+\/)([^\/]+)(\/.*)?$/);
+        const instanceMatch = currentPath.match(
+          /^(\/app\/instances\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/)([^\/]+)(\/.*)?$/,
+        );
 
         if (instanceMatch) {
           const basePath = instanceMatch[1];
