@@ -13,6 +13,17 @@ const server = async (fastify, options) => {
   await fastify.register(require('@fastify/view'), {
     engine: { ejs: require('ejs') },
     root: join(__dirname, 'views'),
+    options: {
+      useHtmlMinifier: require('html-minifier-terser'),
+      htmlMinifierOptions: {
+        removeComments: true,
+        removeCommentsFromCDATA: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: true,
+        removeEmptyAttributes: true,
+      },
+    },
   });
 
   await fastify.register(require('@fastify/env'), {
