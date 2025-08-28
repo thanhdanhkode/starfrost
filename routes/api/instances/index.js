@@ -111,6 +111,15 @@ const InstanceAPIRoute = (fastify, option) => {
     });
   });
 
+  fastify.get('/:instanceId/resources', async (request, reply) => {
+    const { instanceId } = request.params;
+
+    const data = await reply.server.instance.resource({ instanceId });
+    fastify.log.info(data);
+
+    return reply.send();
+  });
+
   fastify.get('/:instanceId/settings', async (request, reply) => {
     const { instanceId } = request.params;
 
