@@ -4,9 +4,6 @@ const InstanceManager = require('./lib/instance');
 const DatabaseManager = require('./lib/database');
 
 const server = async (fastify, options) => {
-  fastify.decorate('database', new DatabaseManager(fastify));
-  fastify.decorate('instance', new InstanceManager(fastify));
-
   await fastify.register(require('@fastify/websocket'));
 
   await fastify.register(require('@fastify/auth'), {});
@@ -34,6 +31,7 @@ const server = async (fastify, options) => {
     schema: {
       type: 'object',
       properties: {
+        APP_DIRECTORY: { type: 'string' },
         BEARER_TOKEN_SECRET: { type: 'string' },
       },
     },
@@ -74,10 +72,13 @@ const server = async (fastify, options) => {
     },
   });
 
-  fastify.ready(() => {
+  fastify.decorate('database', new DatabaseManager(fastify));
+  fastify.decorate('instance', new InstanceManager(fastify));
+
+  fastify.ready(async () => {
     // console.log('[Starfrost] Routes\n', fastify.printRoutes());
     // console.log('[Starfrost] Plugins \n', fastify.printPlugins());
-    // console.log('[Starfrost] Environment Variables\n', fastify.getEnvs());
+    // fastify.log.info(fastify.getEnvs());
     fastify.instance.init();
     fastify.log.info('Ready!');
   });
