@@ -103,37 +103,28 @@ const AppRoute = (fastify, options) => {
   );
 
   fastify.get('/users', { preHandler: fastify.auth([fastify.verifyAppJWT]) }, async (request, reply) => {
+    const data = await reply.server.user.getAll();
+    console.log(data);
+
     return reply.viewAsync(
       './pages/User.ejs',
       {
         title: 'Users • Starfrost',
-        userData: [
-          {
-            id: 1,
-            name: 'User 1',
-            role: 'admin',
-          },
-          {
-            id: 2,
-            name: 'User 2',
-            role: 'normal',
-          },
-          {
-            id: 3,
-            name: 'User 3',
-            role: 'normal',
-          },
-          {
-            id: 4,
-            name: 'User 4',
-            role: 'normal',
-          },
-          {
-            id: 5,
-            name: 'User 5',
-            role: 'normal',
-          },
-        ],
+        userData: data,
+      },
+      { layout: './partials/layouts/AppLayout.ejs' },
+    );
+  });
+
+  fastify.get('/users/:userId', { preHandler: fastify.auth([fastify.verifyAppJWT]) }, async (request, reply) => {
+    const data = await reply.server.user.getAll();
+    console.log(data);
+
+    return reply.viewAsync(
+      './pages/UserById.ejs',
+      {
+        title: 'Users • Starfrost',
+        userData: data,
       },
       { layout: './partials/layouts/AppLayout.ejs' },
     );
