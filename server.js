@@ -2,6 +2,7 @@ const { join } = require('node:path');
 
 const InstanceManager = require('./lib/instance');
 const DatabaseManager = require('./lib/database');
+const UserManager = require('./lib/user');
 
 const server = async (fastify, options) => {
   await fastify.register(require('@fastify/websocket'));
@@ -74,12 +75,12 @@ const server = async (fastify, options) => {
 
   fastify.decorate('database', new DatabaseManager(fastify));
   fastify.decorate('instance', new InstanceManager(fastify));
+  fastify.decorate('user', new UserManager(fastify));
 
   fastify.ready(async () => {
     // console.log('[Starfrost] Routes\n', fastify.printRoutes());
     // console.log('[Starfrost] Plugins \n', fastify.printPlugins());
     // fastify.log.info(fastify.getEnvs());
-    fastify.instance.init();
     fastify.log.info('Ready!');
   });
 };
