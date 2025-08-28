@@ -2,6 +2,8 @@
   "cSpell.words": [
     "Cantarell",
     "commitlint",
+    "keymap",
+    "navlink",
     "Neue",
     "oklch",
     "Roboto",
@@ -9,9 +11,7 @@
     "solidjs",
     "starfrost",
     "thanhdanhkode",
-    "typesync"
-  ]
     "typesync",
     "xhttp"
-  ],
+  ]
 }
