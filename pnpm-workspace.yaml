@@ -1,2 +1,5 @@
 packages:
   - src/*
+
+onlyBuiltDependencies:
+  - sqlite3

@@ -1,19 +1,23 @@
-const AuthAPI = (fastify, options) => {
-  fastify.get('/', async (request, reply) => {
+const { Login, Logout, ForgotPwd } = require('./../../../controllers/auth.controller');
+
+const verify = (request, reply, done) => {
+  const cookie = request.cookies;
+
+  done();
+};
+
+const AuthAPIRoute = (fastify, options) => {
+  fastify.decorate('verify', verify);
+
+  fastify.get('/', { preHandler: fastify.auth([fastify.verify]) }, async (request, reply) => {
     return reply.status(200).send({ message: 'Auth API is opened' });
   });
 
-  fastify.post('/login', async (request, reply) => {
-    return reply.send({ message: 'Login API is opened' });
-  });
+  fastify.post('/login', {}, Login);
 
-  fastify.get('/logout', async (request, reply) => {
-    return reply.send({ message: 'Logout API is opened' });
-  });
+  fastify.get('/logout', {}, Logout);
 
-  fastify.get('/forgot-pwd', async (request, reply) => {
-    return reply.send({ message: 'Forgot Password API is opened' });
-  });
+  fastify.get('/forgot-pwd', {}, ForgotPwd);
 };
 
-module.exports = AuthAPI;
+module.exports = AuthAPIRoute;

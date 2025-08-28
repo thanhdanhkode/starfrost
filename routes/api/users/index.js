@@ -1,4 +1,5 @@
 const { randomBytes, randomUUID } = require('node:crypto');
+const { getAllUsers, createUser, getUserById } = require('../../../controllers/user.controller');
 
 const userOptions = {
   schema: {
@@ -13,32 +14,23 @@ const userOptions = {
   },
 };
 
-const APIRoute = (fastify, option) => {
-  fastify.get('/', async (request, reply) => {
-    return reply.status(200).send([
-      {
-        userId: 1,
-        username: 'john_doe',
-        email: 'john@example.com',
-        uuid: randomUUID(),
-        randomBytes: randomBytes(16).toString('hex'),
-      },
-      {
-        userId: 2,
-        username: 'jane_doe',
-        email: 'jane@example.com',
-        uuid: randomUUID(),
-        password: randomBytes(16).toString('hex'),
-      },
-    ]);
+const UserAPIRoute = (fastify, option) => {
+  fastify.get('/', getAllUsers);
+
+  fastify.post('/', userOptions, createUser);
+
+  fastify.get('/:userId', getUserById);
+
+  fastify.post('/:userId', async (request, reply) => {
+    const { userId } = request.params;
+    const { username, email } = request.body;
+    return reply.status(201).send({ userId, username, email });
   });
 
-  fastify.post('/', userOptions, async (request, reply) => {
-    const { username, email } = request.body;
-    return reply
-      .status(201)
-      .send({ userId: 3, username, email, uuid: randomUUID(), password: randomBytes(16).toString('hex') });
+  fastify.delete('/:userId', async (request, reply) => {
+    const { userId } = request.params;
+    return reply.status(204).send();
   });
 };
 
-module.exports = APIRoute;
+module.exports = UserAPIRoute;
