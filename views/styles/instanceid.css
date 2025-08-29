@@ -35,6 +35,43 @@
   color: #737373;
 }
 
+.instance > .header > .action {
+  display: flex;
+  align-items: center;
+}
+
+.instance > .header > .action > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 12px;
+  min-height: 32px;
+  background: #f3f3f3;
+  margin: 0 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.instance > .header > .action > button > svg {
+  height: 16px;
+  width: 16px;
+}
+
+.instance > .header > .action > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 12px;
+  background: #d4d4d4;
+  border-radius: 8px;
+  min-height: 32px;
+  margin: 0 0 0 4px;
+}
+
+.instance > .header > .action > div > span {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
 .instance > .panel {
   width: 100%;
   margin-top: 16px;
