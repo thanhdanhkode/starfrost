@@ -33,11 +33,14 @@ const AppRoute = (fastify, options) => {
     '/instances/:instanceId',
     { preHandler: fastify.auth([fastify.verifyAppJWT]) },
     async (request, reply) => {
+      const { instanceId } = request.params;
+      const data = reply.server.instance.info({ instanceId });
+      console.log(data);
       return reply.viewAsync(
         './pages/InstanceByIdOverview.ejs',
         {
           title: 'Instance Detail • Starfrost',
-          instanceData: { id: request.params.instanceId, name: 'Instance Name' },
+          instanceData: { id: data.InstanceId, name: data.instanceName, status: data.instanceStatus },
         },
         { layout: './partials/layouts/InstanceLayout.ejs' },
       );
