@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/base.css" />
     <script type="module" src="/jquery.js"></script>
     <script type="module" src="/lib.js"></script>
+		<script type="module" src="/ws.js"></script>
   </head>
   <body>
     <div class="app">
@@ -24,13 +25,13 @@
                 <span>Instance Description</span>
               </div>
               <div class="action">
-								<button type="button">
+								<button type="button" class="action start">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-power-icon lucide-power"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
 								</button>
-								<button type="button">
+								<button type="button" class="action restart">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
 								</button>
-								<button type="button">
+								<button type="button" class="action stop">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-icon lucide-square"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
 								</button>
                 <div><span><%= instanceData.status %></span></div>
