@@ -35,7 +35,7 @@ const AppRoute = (fastify, options) => {
     async (request, reply) => {
       const { instanceId } = request.params;
       const data = reply.server.instance.info({ instanceId });
-      console.log(data);
+
       return reply.viewAsync(
         './pages/InstanceByIdOverview.ejs',
         {
@@ -51,11 +51,14 @@ const AppRoute = (fastify, options) => {
     '/instances/:instanceId/overview',
     { preHandler: fastify.auth([fastify.verifyAppJWT]) },
     async (request, reply) => {
+      const { instanceId } = request.params;
+      const data = reply.server.instance.info({ instanceId });
+
       return reply.viewAsync(
         './pages/InstanceByIdOverview.ejs',
         {
           title: 'Instance Detail • Starfrost',
-          instanceData: { id: request.params.instanceId, name: 'Instance Name' },
+          instanceData: { id: data.InstanceId, name: data.instanceName, status: data.instanceStatus },
         },
         { layout: './partials/layouts/InstanceLayout.ejs' },
       );
@@ -65,11 +68,14 @@ const AppRoute = (fastify, options) => {
     '/instances/:instanceId/terminal',
     { preHandler: fastify.auth([fastify.verifyAppJWT]) },
     async (request, reply) => {
+      const { instanceId } = request.params;
+      const data = reply.server.instance.info({ instanceId });
+
       return reply.viewAsync(
         './pages/InstanceByIdTerminal.ejs',
         {
           title: 'Instance Detail • Starfrost',
-          instanceData: { id: request.params.instanceId, name: 'Instance Name' },
+          instanceData: { id: data.InstanceId, name: data.instanceName, status: data.instanceStatus },
         },
         { layout: './partials/layouts/InstanceLayout.ejs' },
       );
@@ -79,11 +85,14 @@ const AppRoute = (fastify, options) => {
     '/instances/:instanceId/files',
     { preHandler: fastify.auth([fastify.verifyAppJWT]) },
     async (request, reply) => {
+      const { instanceId } = request.params;
+      const data = reply.server.instance.info({ instanceId });
+
       return reply.viewAsync(
         './pages/InstanceByIdFiles.ejs',
         {
           title: 'Instance Detail • Starfrost',
-          instanceData: { id: request.params.instanceId, name: 'Instance Name' },
+          instanceData: { id: data.InstanceId, name: data.instanceName, status: data.instanceStatus },
         },
         { layout: './partials/layouts/InstanceLayout.ejs' },
       );
@@ -94,11 +103,14 @@ const AppRoute = (fastify, options) => {
     '/instances/:instanceId/settings',
     { preHandler: fastify.auth([fastify.verifyAppJWT]) },
     async (request, reply) => {
+      const { instanceId } = request.params;
+      const data = reply.server.instance.info({ instanceId });
+
       return reply.viewAsync(
         './pages/InstanceByIdSettings.ejs',
         {
           title: 'Instance Detail • Starfrost',
-          instanceData: { id: request.params.instanceId, name: 'Instance Name' },
+          instanceData: { id: data.InstanceId, name: data.instanceName, status: data.instanceStatus },
         },
         { layout: './partials/layouts/InstanceLayout.ejs' },
       );
