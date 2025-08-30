@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentPath = window.location.pathname;
 
   function setActiveLink() {
-    // Remove existing active classes
     navLinks.forEach((link) => link.classList.remove('active'));
 
     let activeLink = null;
@@ -162,8 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
    * Instance Panel
    *
    */
-  const menuPanelButton = document.querySelectorAll('div[class~="tab"]');
-  menuPanelButton.forEach((button) => {
+  const menuPanelButtons = document.querySelectorAll('div[class~="tab"]');
+  menuPanelButtons.forEach((button) => {
     button.classList.remove('active-tab');
     if (currentPath.includes(button.id)) button.classList.add('active-tab');
     button.addEventListener('click', () => {
@@ -188,6 +187,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (error) {
         console.error('Error navigating:', error);
+      }
+    });
+  });
+
+  const actionInstanceButtons = document.querySelectorAll('button[class~="action"]');
+  actionInstanceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const uuidMatch = window.location.pathname.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+      const instanceId = uuidMatch ? uuidMatch[0] : null;
+      let data;
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', `/api/instances/${instanceId}/power`);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      if (button.classList.contains('start')) {
+        data = JSON.stringify({
+          action: 'start',
+        });
+        xhr.send(data);
+      }
+      if (button.classList.contains('restart')) {
+        data = JSON.stringify({
+          action: 'restart',
+        });
+        xhr.send(data);
+      }
+      if (button.classList.contains('stop')) {
+        data = JSON.stringify({
+          action: 'stop',
+        });
+        xhr.send(data);
       }
     });
   });
