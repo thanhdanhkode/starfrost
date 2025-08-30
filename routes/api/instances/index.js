@@ -106,8 +106,16 @@ const InstanceAPIRoute = (fastify, option) => {
 
   fastify.get('/:instanceId/websocket', { websocket: true }, async (socket, request) => {
     const { instanceId } = request.params;
+
     socket.on('message', (message) => {
-      socket.send('[Starfrost] ' + message);
+      let data;
+      switch (message.toString()) {
+        case 'console log':
+          data = fastify.instance.stream({ instanceId, type: 'console log' });
+          return socket.send(data);
+        default:
+          return socket.send('no data');
+      }
     });
   });
 

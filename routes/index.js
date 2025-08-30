@@ -38,15 +38,16 @@ const DefaultRoute = (fastify, option) => {
     else return reply.viewAsync('index.ejs', { title: 'Starfrost' });
   });
 
-  fastify.get('/:fileName(^\\w+).css', (request, reply) => {
+  fastify.get('/:fileName(^[\\w-.]+).css', (request, reply) => {
     const { fileName } = request.params;
     const filePath = join(__dirname, '..', 'views', 'styles', `${fileName}.css`);
     if (!fs.existsSync(filePath)) return reply.status(404).send({ error: 'File not found' });
+    if (fileName.endsWith('.min')) return reply.sendFile(`${fileName}.css`, join(__dirname, '..', 'views', 'styles'));
     const minifiedCSS = new CleanCSS({ inline: '!fonts.googleapis.com' }).minify([filePath]);
     return reply.type('text/css').send(minifiedCSS.styles);
   });
 
-  fastify.get('/:fileName(^\\w+).js', async (request, reply) => {
+  fastify.get('/:fileName(^[\\w-.]+).js', async (request, reply) => {
     const { fileName } = request.params;
     const filePath = join(__dirname, '..', 'views', 'js', `${fileName}.mjs`);
     if (!fs.existsSync(filePath)) return reply.status(404).send({ error: 'File not found' });
